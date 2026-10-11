@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+  <title>برای محدثه جانم؛ معجزه ۴۴ روز زندگی من ✨</title>
+  <style>
+    /* ایمپورت فونت وزیرمتن و فونت نستعلیق استاندارد گوگل به عنوان پشتیبان */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Nastaliq+Urdu:wght@400;700&family=Vazirmatn:wght@200;400;600;800;900&display=swap');
+
+    /* فونت اصیل ایران نستعلیق با لینک CDN پایدار */
+    @font-face {
+      font-family: 'IranNastaliq';
+      src: url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq-font@v1.0.0/dist/IranNastaliq.woff2') format('woff2'),
+           url('https://cdn.jsdelivr.net/gh/rastikerdar/iran-nastaliq-font@v1.0.0/dist/IranNastaliq.ttf') format('truetype');
+      font-display: swap;
+      font-style: normal;
+      font-weight: 400;
+    }
+
+    :root {
+      --gold-primary: #d4af37;
+      --gold-glow: #ffe28a;
+      --rose-neon: #ff2a70;
+      --space-dark: #050208;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', sans-serif;
+      user-select: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body, html {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: var(--space-dark);
+      color: #fff;
+    }
+
+    /* فضای رندر سه‌بعدی Three.js */
+    #webgl-canvas {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      width: 100vw;
+      height: 100vh;
+      display: block;
+      cursor: default;
+    }
+
+    body.viewing-bg #webgl-canvas {
+      cursor: pointer;
+    }
+
+    /* کانتینر افکت نام محدثه */
+    .nastaliq-container {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 60;
+      pointer-events: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      animation: floatGrandEntrance 3.6s cubic-bezier(0.18, 0.89, 0.32, 1.1) forwards;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    /* تاج نوری طلایی بالای نام */
+    .nastaliq-crown {
+      font-size: 2.4rem;
+      filter: drop-shadow(0 0 20px #ffe28a);
+      animation: crownBob 2s infinite ease-in-out;
+      margin-bottom: -10px;
+    }
+
+    @keyframes crownBob {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-6px) scale(1.1); }
+    }
+
+    /* خوشنویسی نستعلیق با اتصال صحیح حروف و ابعاد ریسپانسیو */
+    .nastaliq-text {
+      font-family: 'IranNastaliq', 'Noto Nastaliq Urdu', 'Vazirmatn', serif;
+      font-size: clamp(3.8rem, 13vw, 7.5rem);
+      line-height: 1.6;
+      background: linear-gradient(180deg, #ffffff 10%, #ffe999 45%, #e5b33d 75%, #ff2a70 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 35px rgba(255, 226, 138, 0.9))
+              drop-shadow(0 0 75px rgba(255, 42, 112, 0.75));
+      letter-spacing: 0 !important;
+      white-space: nowrap;
+      padding: 10px 25px;
+      direction: rtl;
+      text-align: center;
+    }
+
+    /* زیرعنوان شاعرانه */
+    .nastaliq-sub {
+      font-size: 1.2rem;
+      font-weight: 400;
+      letter-spacing: 2px;
+      color: #ffe6f0;
+      text-shadow: 0 0 15px rgba(255, 42, 112, 0.9);
+      margin-top: -5px;
+      opacity: 0.95;
+    }
+
+    /* موج ضربه‌ای نوری */
+    .shockwave-ring {
+      position: absolute;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      border: 3px solid rgba(255, 226, 138, 0.9);
+      box-shadow: 0 0 45px rgba(255, 42, 112, 0.9), inset 0 0 30px rgba(255, 226, 138, 0.8);
+      animation: expandShockwave 1.6s ease-out forwards;
+      pointer-events: none;
+      z-index: 55;
+    }
+
+    @keyframes expandShockwave {
+      0% {
+        transform: translate(-50%, -50%) scale(0.2);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(5.5);
+        opacity: 0;
+      }
+    }
+
+    /* ذرات نوری ستاره‌ای شناور */
+    .sparkle-particle {
+      position: fixed;
+      border-radius: 50%;
+      pointer-events: none;
+      z-index: 65;
+      animation: explodeFade 1.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes explodeFade {
+      0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(var(--dx), var(--dy)) scale(0);
+        opacity: 0;
+      }
+    }
+
+    @keyframes floatGrandEntrance {
+      0% {
+        opacity: 0;
+        transform: translate(-50%, -10%) scale(0.45);
+        filter: blur(14px);
+      }
+      20% {
+        opacity: 1;
+        transform: translate(-50%, -48%) scale(1.12);
+        filter: blur(0px);
+      }
+      35% {
+        transform: translate(-50%, -50%) scale(1);
+      }
+      75% {
+        opacity: 1;
+        transform: translate(-50%, -65%) scale(1.03);
+        filter: blur(0px);
+      }
+      100% {
+        opacity: 0;
+        transform: translate(-50%, -90%) scale(0.85);
+        filter: blur(12px);
+      }
+    }
+
+    /* راهنمای لمس قلب */
+    #bg-tap-hint {
+      position: fixed;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 40;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 226, 138, 0.3);
+      padding: 10px 28px;
+      border-radius: 50px;
+      font-size: 0.95rem;
+      color: var(--gold-glow);
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.6s ease;
+      box-shadow: 0 10px 35px rgba(0,0,0,0.6);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+    }
+
+    #bg-tap-hint.show {
+      opacity: 1;
+    }
+
+    /* پرده ورودی */
+    #intro-curtain {
+      position: fixed;
+      inset: 0;
+      z-index: 1000;
+      background: radial-gradient(circle at center, #1b0724 0%, #030106 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 1.2s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1.2s ease;
+      cursor: pointer;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .pulse-seal {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      background: radial-gradient(circle at 35% 35%, #ff2a70, #730626);
+      box-shadow: 0 0 60px rgba(255, 42, 112, 0.8), inset 0 0 25px rgba(255, 255, 255, 0.6);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      position: relative;
+      animation: sealBreathing 2.2s infinite ease-in-out;
+      border: 3px solid rgba(255, 226, 138, 0.5);
+      transition: transform 0.3s;
+    }
+
+    .pulse-seal:hover {
+      transform: scale(1.08);
+    }
+
+    @keyframes sealBreathing {
+      0%, 100% { transform: scale(1); box-shadow: 0 0 50px rgba(255, 42, 112, 0.6); }
+      50% { transform: scale(1.1); box-shadow: 0 0 90px rgba(255, 226, 138, 0.9); }
+    }
+
+    .intro-title {
+      margin-top: 35px;
+      font-size: clamp(1.3rem, 4vw, 1.7rem);
+      font-weight: 800;
+      background: linear-gradient(135deg, #fff, var(--gold-glow), var(--rose-neon));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    .intro-hint {
+      margin-top: 12px;
+      font-size: 0.95rem;
+      color: #baa3cf;
+      opacity: 0.85;
+      text-align: center;
+    }
+
+    /* پنل شناور سینمایی رویی */
+    .cinema-overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      pointer-events: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    .glass-card {
+      pointer-events: auto;
+      width: 100%;
+      max-width: 620px;
+      min-height: 520px;
+      background: rgba(14, 7, 24, 0.55);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: 36px;
+      padding: 35px 28px;
+      box-shadow: 0 30px 100px rgba(0, 0, 0, 0.85), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      opacity: 0;
+      transform: translateY(40px) scale(0.95);
+      transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .glass-card.active {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    .glass-card.cinema-hidden {
+      opacity: 0 !important;
+      transform: scale(0.92) !important;
+      pointer-events: none !important;
+    }
+
+    /* دکمه شناور دیدن پس‌زمینه */
+    #toggle-view-btn {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      z-index: 100;
+      background: rgba(255, 255, 255, 0.12);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      display: none;
+      align-items: center;
+      gap: 8px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+      transition: all 0.3s ease;
+    }
+
+    #toggle-view-btn:hover {
+      background: rgba(255, 255, 255, 0.22);
+      transform: translateY(-2px);
+    }
+
+    /* نوار کنترل بالا */
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding-bottom: 15px;
+    }
+
+    .badge-date {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--gold-glow);
+      background: rgba(212, 175, 55, 0.15);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      padding: 5px 14px;
+      border-radius: 50px;
+      white-space: nowrap;
+    }
+
+    .music-control-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      padding: 6px 14px;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.8rem;
+      color: #ffd1e0;
+      white-space: nowrap;
+    }
+
+    .vis-bars {
+      display: flex;
+      align-items: center;
+      gap: 2.5px;
+      height: 14px;
+    }
+
+    .v-bar {
+      width: 2.5px;
+      height: 100%;
+      background: var(--rose-neon);
+      border-radius: 2px;
+      animation: soundDance 1.2s infinite ease-in-out;
+    }
+    .v-bar:nth-child(2) { animation-delay: 0.2s; }
+    .v-bar:nth-child(3) { animation-delay: 0.4s; }
+
+    @keyframes soundDance {
+      0%, 100% { height: 4px; }
+      50% { height: 14px; }
+    }
+
+    .music-control-btn.paused .v-bar {
+      animation: none;
+      height: 4px;
+    }
+
+    /* سکانس‌های متنی */
+    .sequence-view {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      animation: fadeInSeq 0.7s ease forwards;
+    }
+
+    .sequence-view.current {
+      display: flex;
+    }
+
+    @keyframes fadeInSeq {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* عنوان‌ها و کلمه روز */
+    .seq-title {
+      font-size: clamp(1.4rem, 4.5vw, 2.1rem);
+      font-weight: 900;
+      line-height: 1.8;
+      background: linear-gradient(135deg, #fff 20%, var(--gold-glow) 70%, var(--rose-neon) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 8px;
+      word-break: keep-all;
+    }
+
+    /* جلوگیری از دو نیم شدن عبارات و کلمه روز */
+    .no-break {
+      white-space: nowrap;
+      display: inline-block;
+    }
+
+    .big-number-zone {
+      margin: 14px 0;
+      text-align: center;
+    }
+
+    .number-44 {
+      font-size: clamp(4rem, 15vw, 5.8rem);
+      font-weight: 900;
+      line-height: 1;
+      background: linear-gradient(180deg, #ffffff, var(--gold-glow), var(--gold-primary));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 0 35px rgba(212, 175, 55, 0.5));
+    }
+
+    .number-sub {
+      font-size: 1.15rem;
+      color: #ff9ec4;
+      font-weight: 600;
+      margin-top: 4px;
+    }
+
+    .clock-ticker {
+      margin-top: 10px;
+      font-size: 0.88rem;
+      color: #e3d2f2;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 6px 16px;
+      border-radius: 50px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      direction: rtl;
+    }
+
+    .seq-paragraph {
+      font-size: 1.15rem;
+      line-height: 2.2;
+      color: #eee1fa;
+      font-weight: 300;
+      margin-top: 14px;
+      max-width: 500px;
+    }
+
+    .letter-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 22px;
+      text-align: right;
+      font-size: 1.12rem;
+      line-height: 2.2;
+      color: #f7effd;
+      margin-top: 12px;
+      direction: rtl;
+    }
+
+    /* دکمه‌های ناوبری */
+    .controls-zone {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      margin-top: 18px;
+      flex-wrap: wrap;
+    }
+
+    .btn-epic {
+      padding: 13px 34px;
+      border-radius: 50px;
+      border: none;
+      background: linear-gradient(135deg, var(--rose-neon), #8c0c3e);
+      color: #fff;
+      font-size: 1.05rem;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 10px 30px rgba(255, 42, 112, 0.4);
+      transition: all 0.3s;
+    }
+
+    .btn-epic:hover {
+      transform: translateY(-2px) scale(1.04);
+      box-shadow: 0 15px 40px rgba(255, 42, 112, 0.65);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #baa3cf;
+      box-shadow: none;
+    }
+
+    .btn-ghost:hover {
+      border-color: #fff;
+      color: #fff;
+    }
+
+    .stepper {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 15px;
+    }
+
+    .step-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.25);
+      transition: all 0.4s ease;
+    }
+
+    .step-dot.active {
+      width: 28px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, var(--gold-glow), var(--rose-neon));
+    }
+
+    @media (max-width: 600px) {
+      .glass-card { min-height: 480px; padding: 24px 18px; border-radius: 28px; }
+      .seq-paragraph, .letter-card { font-size: 1rem; line-height: 2; }
+      .nastaliq-crown { font-size: 1.8rem; }
+      .nastaliq-sub { font-size: 0.95rem; }
+      #toggle-view-btn { bottom: 15px; left: 15px; padding: 8px 14px; font-size: 0.8rem; }
+      .btn-epic { padding: 11px 24px; font-size: 0.95rem; }
+    }
+  </style>
+
+  <!-- کتابخانه Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- صوت بدون مانع 1.mp3 -->
+  <audio id="audio-track" loop preload="auto">
+    <source src="1.mp3" type="audio/mpeg" />
+  </audio>
+
+  <!-- بوم سه‌بعدی Three.js -->
+  <canvas id="webgl-canvas"></canvas>
+
+  <!-- راهنمای لمس قلب در حالت پس‌زمینه -->
+  <div id="bg-tap-hint">
+    <span>👑</span>
+    <span>قلب سه‌بعدی را لمس کن...</span>
+    <span>✨</span>
+  </div>
+
+  <!-- دکمه شناور دیدن پس‌زمینه سه‌بعدی -->
+  <button id="toggle-view-btn" onclick="toggleBackgroundView()">
+    <span id="view-icon">👁️</span>
+    <span id="view-text">دیدن پس‌زمینه</span>
+  </button>
+
+  <!-- پرده ورودی -->
+  <div id="intro-curtain" onclick="launchExperience()">
+    <div class="pulse-seal">👑</div>
+    <h1 class="intro-title">محدثه جانم؛ روی این نشان ضربه بزن</h1>
+    <p class="intro-hint">یک راز ۴۴ روزه کهکشانی برای تو آماده است...</p>
+  </div>
+
+  <!-- کارت شناور اصلی -->
+  <div class="cinema-overlay">
+    <main class="glass-card" id="glass-card">
+      <header class="top-bar">
+        <span class="badge-date"><span class="no-break">۴۴ روز</span> زندگی بهشتی 💍</span>
+        <div class="music-control-btn" id="music-btn" onclick="toggleAudio()">
+          <div class="vis-bars">
+            <div class="v-bar"></div>
+            <div class="v-bar"></div>
+            <div class="v-bar"></div>
+          </div>
+          <span id="music-status">نوای عشق</span>
+        </div>
+      </header>
+
+      <!-- سکانس ۱: ثبت ۴۴ روز -->
+      <section class="sequence-view current" id="sec-1">
+        <h2 class="seq-title"><span class="no-break">۴۴ روز</span> در مدار نگاهت... ✨</h2>
+        
+        <div class="big-number-zone">
+          <div class="number-44" id="num-counter">0</div>
+          <div class="number-sub"><span class="no-break">روز</span> از پیوند مقدس و شیرینمان گذشت</div>
+          <div class="clock-ticker">
+            <span>⏱️</span>
+            <span id="live-timer">در حال محاسبه ثانیه‌ها...</span>
+          </div>
+        </div>
+
+        <p class="seq-paragraph">
+          <span class="no-break">۴۴ روز</span> است که جهان برای من رنگ دیگری گرفته؛ 
+          هر طلوع با یاد تو زیباتر است و هر شب در هوای آرامش تو به پایان می‌رسد.
+        </p>
+
+        <div class="controls-zone">
+          <button class="btn-epic" onclick="goSeq(2)">ورق بزن: نامه <span class="no-break">روز دختر</span> 🌸</button>
+        </div>
+      </section>
+
+      <!-- سکانس ۲: پیام روز دختر -->
+      <section class="sequence-view" id="sec-2">
+        <h2 class="seq-title"><span class="no-break">روز دختر</span> مبارک فرشته‌ی خانه‌ام 💖</h2>
+        
+        <div class="letter-card">
+          محدثه جان، زیباترین دختر جهان و ملکه قلبم؛<br>
+          امروز اولین <span class="no-break">روز دختری</span> است که جشن می‌گیریم. 
+          مرسی که با خنده‌هایت به این قلبم  جان دادی و دستانت پناه امن تمام خستگی‌هایم شد. 
+          تو تا ابد عزیزترین و درخشان‌ترین دختر این عالمی...
+        </div>
+
+        <div class="controls-zone">
+          <button class="btn-epic" onclick="goSeq(3)">عهد تا ابدیت 🪐</button>
+          <button class="btn-epic btn-ghost" onclick="goSeq(1)">قبلی</button>
+        </div>
+      </section>
+
+      <!-- سکانس ۳: عهد ابدی -->
+      <section class="sequence-view" id="sec-3">
+        <div style="font-size: 3.5rem; margin-bottom: 5px;">💍✨</div>
+        <h2 class="seq-title">تا ابد و یک <span class="no-break">روز</span> در کنار هم</h2>
+        
+        <p class="seq-paragraph">
+          این <span class="no-break">۴۴ روز</span>، تنها اولین برگ از زیباترین کتاب زندگی ما بود. 
+          قول می‌دهم همیشه خنده‌هایت دلیل نفس کشیدنم باشد...
+        </p>
+
+        <div class="controls-zone">
+          <button class="btn-epic" onclick="pulseHeartExtra()">تپش قلب کهکشان 🎆</button>
+          <button class="btn-epic btn-ghost" onclick="goSeq(2)">قبلی</button>
+        </div>
+      </section>
+
+      <footer class="stepper">
+        <div class="step-dot active" id="dot-1"></div>
+        <div class="step-dot" id="dot-2"></div>
+        <div class="step-dot" id="dot-3"></div>
+      </footer>
+    </main>
+  </div>
+
+  <script>
+    /* ================= ۱. گرافیک سه‌بعدی THREE.JS ================= */
+    let scene, camera, renderer, starField, heartMesh;
+    const canvas = document.getElementById('webgl-canvas');
+    let heartScale = 0.7;
+    let targetScale = 0.7;
+    let time = 0;
+
+    const raycaster = new THREE.Raycaster();
+    const mouse = new THREE.Vector2();
+
+    function init3D() {
+      if (typeof THREE === 'undefined') return;
+
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+      camera.position.z = 25;
+
+      renderer = new THREE.WebGLRenderer({ canvas: canvas, antialias: true, alpha: true });
+      renderer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
+      // ذرات ستاره‌ای طلایی و ارغوانی
+      const starCount = 2200;
+      const starGeo = new THREE.BufferGeometry();
+      const positions = new Float32Array(starCount * 3);
+      const colors = new Float32Array(starCount * 3);
+
+      for (let i = 0; i < starCount * 3; i += 3) {
+        positions[i] = (Math.random() - 0.5) * 85;
+        positions[i + 1] = (Math.random() - 0.5) * 85;
+        positions[i + 2] = (Math.random() - 0.5) * 85;
+
+        if (Math.random() > 0.35) {
+          colors[i] = 0.98; colors[i + 1] = 0.85; colors[i + 2] = 0.4;
+        } else {
+          colors[i] = 1.0;  colors[i + 1] = 0.16; colors[i + 2] = 0.44;
+        }
+      }
+
+      starGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      starGeo.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+
+      const starMat = new THREE.PointsMaterial({
+        size: 0.25,
+        vertexColors: true,
+        transparent: true,
+        opacity: 0.85
+      });
+
+      starField = new THREE.Points(starGeo, starMat);
+      scene.add(starField);
+
+      // هندسه سه‌بعدی قلب کریستالی
+      const x = 0, y = 0;
+      const heartShape = new THREE.Shape();
+      heartShape.moveTo(x + 2.5, y + 2.5);
+      heartShape.bezierCurveTo(x + 2.5, y + 2.5, x + 2.0, y, x, y);
+      heartShape.bezierCurveTo(x - 3.0, y, x - 3.0, y + 3.5, x - 3.0, y + 3.5);
+      heartShape.bezierCurveTo(x - 3.0, y + 5.5, x - 1.0, y + 7.7, x + 2.5, y + 9.5);
+      heartShape.bezierCurveTo(x + 6.0, y + 7.7, x + 8.0, y + 5.5, x + 8.0, y + 3.5);
+      heartShape.bezierCurveTo(x + 8.0, y + 3.5, x + 8.0, y, x + 5.0, y);
+      heartShape.bezierCurveTo(x + 3.5, y, x + 2.5, y + 2.5, x + 2.5, y + 2.5);
+
+      const extrudeSettings = { depth: 1.2, bevelEnabled: true, bevelSegments: 3, steps: 2, bevelSize: 0.5, bevelThickness: 0.5 };
+      const geometry = new THREE.ExtrudeGeometry(heartShape, extrudeSettings);
+      geometry.center();
+
+      const material = new THREE.MeshPhongMaterial({
+        color: 0xd4af37,
+        emissive: 0x330c1d,
+        specular: 0xffffff,
+        shininess: 95,
+        wireframe: true
+      });
+
+      heartMesh = new THREE.Mesh(geometry, material);
+      heartMesh.scale.set(0.7, 0.7, 0.7);
+      heartMesh.rotation.z = Math.PI;
+      scene.add(heartMesh);
+
+      const ambientLight = new THREE.AmbientLight(0xffffff, 0.8);
+      scene.add(ambientLight);
+
+      const pointLight = new THREE.PointLight(0xff2a70, 2.8, 60);
+      pointLight.position.set(6, 6, 12);
+      scene.add(pointLight);
+
+      canvas.addEventListener('click', onCanvasClick);
+      canvas.addEventListener('touchend', onCanvasTouch, { passive: false });
+
+      animate3D();
+    }
+
+    function animate3D() {
+      requestAnimationFrame(animate3D);
+      time += 0.035;
+
+      if (starField) {
+        starField.rotation.y += 0.0008;
+        starField.rotation.x += 0.0004;
+      }
+
+      if (heartMesh) {
+        heartMesh.rotation.y += 0.008;
+        const pulse = Math.sin(time) * 0.08 + (Math.sin(time * 2) > 0.65 ? 0.05 : 0);
+        const finalScale = targetScale + pulse;
+        
+        heartScale += (finalScale - heartScale) * 0.1;
+        heartMesh.scale.set(heartScale, heartScale, heartScale);
+      }
+
+      renderer.render(scene, camera);
+    }
+
+    window.addEventListener('resize', () => {
+      if (!camera || !renderer) return;
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    /* ================= ۲. سیستم انفجار نوری و بالا آمدن نستعلیق «محدثه» ================= */
+    function checkHeartIntersection(clientX, clientY) {
+      if (!isHidden || !heartMesh) return;
+
+      mouse.x = (clientX / window.innerWidth) * 2 - 1;
+      mouse.y = -(clientY / window.innerHeight) * 2 + 1;
+
+      raycaster.setFromCamera(mouse, camera);
+      const intersects = raycaster.intersectObject(heartMesh);
+      const isCenter = Math.abs(clientX - window.innerWidth / 2) < 150 && Math.abs(clientY - window.innerHeight / 2) < 170;
+
+      if (intersects.length > 0 || isCenter) {
+        triggerGrandNastaliq();
+      }
+    }
+
+    function onCanvasClick(e) {
+      checkHeartIntersection(e.clientX, e.clientY);
+    }
+
+    function onCanvasTouch(e) {
+      if (e.changedTouches && e.changedTouches.length > 0) {
+        const touch = e.changedTouches[0];
+        checkHeartIntersection(touch.clientX, touch.clientY);
+      }
+    }
+
+    function triggerGrandNastaliq() {
+      // تپش سه‌بعدی
+      targetScale = 1.45;
+      setTimeout(() => targetScale = 0.7, 450);
+
+      const centerX = window.innerWidth / 2;
+      const centerY = window.innerHeight / 2;
+
+      // حلقه موج نوری
+      const ring = document.createElement('div');
+      ring.className = 'shockwave-ring';
+      ring.style.left = `${centerX}px`;
+      ring.style.top = `${centerY}px`;
+      document.body.appendChild(ring);
+      setTimeout(() => ring.remove(), 1600);
+
+      // ذرات آتش‌بازی
+      createParticleSparks(centerX, centerY);
+
+      // ساخت کانتینر خوشنویسی با زبان و چیدمان استاندارد
+      const container = document.createElement('div');
+      container.className = 'nastaliq-container';
+
+      const crown = document.createElement('div');
+      crown.className = 'nastaliq-crown';
+      crown.innerText = '👑';
+
+      const text = document.createElement('div');
+      text.className = 'nastaliq-text';
+      text.dir = 'rtl';
+      text.lang = 'fa';
+      text.innerText = 'محدثه';
+
+      const sub = document.createElement('div');
+      sub.className = 'nastaliq-sub';
+      sub.innerText = '✨ تمام جهان من ✨';
+
+      container.appendChild(crown);
+      container.appendChild(text);
+      container.appendChild(sub);
+
+      document.body.appendChild(container);
+
+      // پاک‌سازی بعد از اتمام انیمیشن
+      setTimeout(() => {
+        container.remove();
+      }, 3600);
+    }
+
+    function createParticleSparks(x, y) {
+      const colors = ['#ffe28a', '#ffd700', '#ff2a70', '#ffffff', '#ff9ec4'];
+      const count = 38;
+
+      for (let i = 0; i < count; i++) {
+        const p = document.createElement('div');
+        p.className = 'sparkle-particle';
+
+        const size = Math.random() * 8 + 4;
+        p.style.width = `${size}px`;
+        p.style.height = `${size}px`;
+        p.style.left = `${x}px`;
+        p.style.top = `${y}px`;
+
+        const color = colors[Math.floor(Math.random() * colors.length)];
+        p.style.background = color;
+        p.style.boxShadow = `0 0 14px ${color}`;
+
+        const angle = Math.random() * Math.PI * 2;
+        const distance = Math.random() * 220 + 80;
+        const dx = Math.cos(angle) * distance;
+        const dy = Math.sin(angle) * distance;
+
+        p.style.setProperty('--dx', `${dx}px`);
+        p.style.setProperty('--dy', `${dy}px`);
+
+        document.body.appendChild(p);
+        setTimeout(() => p.remove(), 1800);
+      }
+    }
+
+    /* ================= ۳. کنترل صوت ================= */
+    const audio = document.getElementById('audio-track');
+    const musicBtn = document.getElementById('music-btn');
+    const musicStatus = document.getElementById('music-status');
+
+    function startMusic() {
+      audio.play().then(() => {
+        musicBtn.classList.remove('paused');
+        musicStatus.innerText = 'در حال پخش';
+      }).catch(() => {
+        musicBtn.classList.add('paused');
+        musicStatus.innerText = 'لمس برای پخش';
+      });
+    }
+
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play();
+        musicBtn.classList.remove('paused');
+        musicStatus.innerText = 'در حال پخش';
+      } else {
+        audio.pause();
+        musicBtn.classList.add('paused');
+        musicStatus.innerText = 'متوقف شد';
+      }
+    }
+
+    /* ================= ۴. پرده ورودی ================= */
+    function launchExperience() {
+      startMusic();
+
+      const curtain = document.getElementById('intro-curtain');
+      const card = document.getElementById('glass-card');
+      const toggleBtn = document.getElementById('toggle-view-btn');
+
+      curtain.style.opacity = '0';
+      curtain.style.transform = 'scale(1.1)';
+      setTimeout(() => {
+        curtain.style.display = 'none';
+        card.classList.add('active');
+        toggleBtn.style.display = 'flex';
+        runCountUp(44);
+        startLiveTimer();
+      }, 700);
+    }
+
+    /* ================= ۵. دیدن پس‌زمینه ================= */
+    let isHidden = false;
+    const glassCard = document.getElementById('glass-card');
+    const viewIcon = document.getElementById('view-icon');
+    const viewText = document.getElementById('view-text');
+    const bgTapHint = document.getElementById('bg-tap-hint');
+
+    function toggleBackgroundView() {
+      isHidden = !isHidden;
+      updateCardVisibility();
+    }
+
+    function updateCardVisibility() {
+      if (isHidden) {
+        glassCard.classList.add('cinema-hidden');
+        document.body.classList.add('viewing-bg');
+        viewIcon.innerText = '📜';
+        viewText.innerText = 'نمایش نوشته‌ها';
+        bgTapHint.classList.add('show');
+      } else {
+        glassCard.classList.remove('cinema-hidden');
+        document.body.classList.remove('viewing-bg');
+        viewIcon.innerText = '👁️';
+        viewText.innerText = 'دیدن پس‌زمینه';
+        bgTapHint.classList.remove('show');
+      }
+    }
+
+    /* ================= ۶. دکمه تپش اسلاید ۳ ================= */
+    let tempHideTimeout = null;
+
+    function pulseHeartExtra() {
+      targetScale = 1.45;
+      setTimeout(() => targetScale = 0.7, 500);
+
+      isHidden = true;
+      updateCardVisibility();
+
+      triggerGrandNastaliq();
+
+      if (tempHideTimeout) clearTimeout(tempHideTimeout);
+
+      tempHideTimeout = setTimeout(() => {
+        isHidden = false;
+        updateCardVisibility();
+      }, 5500);
+    }
+
+    /* ================= ۷. ناوبری سکانس‌ها ================= */
+    function goSeq(num) {
+      document.querySelectorAll('.sequence-view').forEach(s => s.classList.remove('current'));
+      document.querySelectorAll('.step-dot').forEach(d => d.classList.remove('active'));
+
+      document.getElementById(`sec-${num}`).classList.add('current');
+      document.getElementById(`dot-${num}`).classList.add('active');
+    }
+
+    /* ================= ۸. شمارنده و تایمر زنده ================= */
+    function runCountUp(target) {
+      const el = document.getElementById('num-counter');
+      let cur = 0;
+      const interval = setInterval(() => {
+        cur++;
+        el.innerText = cur;
+        if (cur >= target) clearInterval(interval);
+      }, 25);
+    }
+
+    const marriedDate = new Date();
+    marriedDate.setDate(marriedDate.getDate() - 44);
+
+    function startLiveTimer() {
+      const timerEl = document.getElementById('live-timer');
+      function update() {
+        const now = new Date();
+        const diff = now - marriedDate;
+        const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+        const mins = Math.floor((diff / (1000 * 60)) % 60);
+        const secs = Math.floor((diff / 1000) % 60);
+        timerEl.innerText = `۴۴ روز و ${hours} ساعت و ${mins} دقیقه و ${secs} ثانیه`;
+      }
+      setInterval(update, 1000);
+      update();
+    }
+
+    window.addEventListener('DOMContentLoaded', init3D);
+  </script>
+</body>
+</html>
